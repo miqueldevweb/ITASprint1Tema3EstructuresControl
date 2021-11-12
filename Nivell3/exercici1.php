@@ -10,14 +10,14 @@ for($i = 0; $i < $userNumber; $i++){    //Inicializa el array, se necesita que t
 
 for ($n = 2; $n < $userNumber; $n++){   //El primer numero primo es el 2 asi que empezamos a recorrer el array desde el indice 2.
   if ($numbers[$n]){    //Si el numero esta marcado como primo recorremos los múltiplos hasta el numero objetivo. Por eso hemos inicializado todos los elementos con TRUE.
-    for ($i = $n * $n ;$i < $userNumber; $i += $n){ //Recorre todos los multiplos del numero primo hasta el objetivo. Idea base de la criba de Eratostenes.
+    for ($i = $n * $n ;$i < $userNumber; $i += $n){ //Recorre todos los multiplos del numero primo desde su cuadradado (los anteriores se habrán recorrido desde una iteración anterior) hasta el objetivo. Idea base de la criba de Eratostenes.
        $numbers[$i] = false;
     }
   }
 }
 
 for ($n = 2; $n < $userNumber; $n++){
-  if ($numbers[$n]){    //En mi algoritimo manipulaba los elementos del array asignado 0 a los elementos no primos. Este metodo es claramente mejor.
+  if ($numbers[$n]){    //En mi algoritimo manipulaba los elementos del array asignando 0 a los elementos no primos. Este metodo es mejor, aunque es parecido, mantiene la información.
     echo $n." ";
   }
 }
